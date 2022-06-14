@@ -14,12 +14,14 @@
         <header class="grid-item header">My painting program</header>
         <nav class="grid-item nav">
             <div>
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
                 <input onchange="onSetColor(value)" type="color" class="color-selector" value="#77baca" />
                 <select onchange="onSetShape(value)" class="dropdown-content">
                     <option>Circle</option>
                     <option>Triangle</option>
                     <option>Square</option>
                 </select>
+                <button><a class="download" href="#" onclick="onDownload(this)" download="">DOWNLOAD</a></button>
                 <button>SAVE</button>
                 <button onclick="onClearCanvas()">CLEAR</button>
                 <button>ABOUT</button>

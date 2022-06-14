@@ -12,6 +12,8 @@ var gUserData = {
 function init(){
     gCanvas = document.querySelector('.my-canvas')
     gCtx = gCanvas.getContext('2d')
+    gCtx.fillStyle = 'salmon'
+    gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
 }
 
 function drawShape(ev) {
@@ -63,13 +65,27 @@ function drawArc(x, y) {
 
 function clearCanvas(){
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+    init()
 }
 
+function downloadCanvas(elLink) {
+    const data = gCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'My paint';
+}
 
-// function downloadCanvas(elLink) {
-//     //gets the canvas content and convert it to base64 data URL that can be save as an image
-//     const data = gCanvas.toDataURL();//method returns a data URL containing a representation of the image in the format specified by the type parameter.
-//     console.log('data', data);//decoded the image to base64 
-//     elLink.href = data;//put it on the link
-//     elLink.download = 'puski';//can change the name of the file
-//   }
+function loadImageFromInput(ev, onImageReady) {
+    var reader = new FileReader()
+    reader.onload = function (event) {
+        var img = new Image()
+        img.src = event.target.result
+        img.onload = onImageReady.bind(null, img)
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container')
+    gUserData.width = elContainer.offsetWidth
+    gUserData.height = elContainer.offsetHeight
+}

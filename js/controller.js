@@ -22,3 +22,15 @@ function onCanvasClicked(ev){
 function onClearCanvas() {
     clearCanvas()
 }
+
+function onDownload(elLink){
+    downloadCanvas(elLink)
+}
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
+
+function renderImg(img) {
+    gCtx.drawImage(img, 0, 0, gUserData.width, gUserData.height);
+}

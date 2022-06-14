@@ -34,3 +34,8 @@ body {
     margin: auto;
     border: black solid 3px;
 }
+
+.download{
+    text-decoration: none;
+    color: black;
+}
