@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="grid-container">
+        <header class="grid-item header">My painting program</header>
+        <nav class="grid-item nav">
+            <div>
+                <input type="color" id="color" name="color" form="frmRegister" value="#77baca" />
+                <select class="dropdown-content" aria-placeholder="SQUARES">
+                    <option>Circle</option>
+                    <option>Triangle</option>
+                    <option>Square</option>
+                </select>
+                <button>SAVE</button>
+                <button>CLEAR</button>
+                <button>ABOUT</button>
+            </div>
+        </nav>
+    </section>
+    <section class="canvas">
+        <canvas class="my-canvas" height="600" width="600" onclick="draw(event)"></canvas>
+    </section>
+
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
+
+</body>
+
+</html>
