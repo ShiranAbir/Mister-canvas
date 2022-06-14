@@ -9,27 +9,28 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="onInit()">
     <section class="grid-container">
         <header class="grid-item header">My painting program</header>
         <nav class="grid-item nav">
             <div>
-                <input type="color" id="color" name="color" form="frmRegister" value="#77baca" />
-                <select class="dropdown-content" aria-placeholder="SQUARES">
+                <input onchange="onSetColor(value)" type="color" class="color-selector" value="#77baca" />
+                <select onchange="onSetShape(value)" class="dropdown-content">
                     <option>Circle</option>
                     <option>Triangle</option>
                     <option>Square</option>
                 </select>
                 <button>SAVE</button>
-                <button>CLEAR</button>
+                <button onclick="onClearCanvas()">CLEAR</button>
                 <button>ABOUT</button>
             </div>
         </nav>
     </section>
     <section class="canvas">
-        <canvas class="my-canvas" height="600" width="600" onclick="draw(event)"></canvas>
+        <canvas class="my-canvas" height="600" width="600" onclick="onCanvasClicked(event)"></canvas>
     </section>
 
+    <script src="js/userService.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/service.js"></script>
 
